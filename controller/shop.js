@@ -31,4 +31,10 @@ exports.getCheckOut = (req, res, next) => {
     res.send({message: 'CheckOut'});
 }
 
+exports.deleteCart = (req, res, next) => {
+    console.log(req.body);
+    const {idDel} = {...req.body}
+    ShopCart.deleteItem(idDel);
+}
+
 

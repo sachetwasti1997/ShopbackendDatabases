@@ -1,6 +1,6 @@
 const express = require('express');
 var cors = require('cors');
-
+const bodyparser = require('body-parser');
 const adminData = require('./routes/admin');
 //gets Router object from admin.js that is valid middleware
 
@@ -11,6 +11,8 @@ const app = express();//express package seems to export function at the end
 
 //NodeJs is all about middleware
 app.use(cors());
+
+app.use(bodyparser.urlencoded({extended: false}));
 
 app.use(adminData.routes);
 

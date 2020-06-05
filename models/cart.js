@@ -28,7 +28,7 @@ module.exports = class Cart{
             if(mapOfObjects.cart[productId]){
                 mapOfObjects.cart[productId].qty += 1;  
             }else if(mapOfObjects.cart[productId] === undefined){
-                mapOfObjects.cart[productId] = {id: productId, qty: 1};
+                mapOfObjects.cart[productId] = {id: productId, price: +productPrice, qty: 1};
             }
             mapOfObjects.totalPrice += productPrice;
             console.log(mapOfObjects);
@@ -46,15 +46,16 @@ module.exports = class Cart{
     
     }
 
-    static deleteItem(id, productPrice){
+    static deleteItem(id){
         getProductsFromFilecart(data => {
             let mapOfObjects = JSON.parse(data);
-            console.log(mapOfObjects.products, " from delete cart item*******");
-            if(mapOfObjects.products){
-                const quantity = mapOfObjects.products[id].qty;
+            console.log(mapOfObjects.cart, " from delete cart item******* "+id);
+            if(mapOfObjects.cart && mapOfObjects.cart[id]){
+                const quantity = mapOfObjects.cart[id].qty;
+                const productPrice = mapOfObjects.cart[id].price;
                 const totalPriceDeduct = quantity * productPrice;
                 mapOfObjects.totalPrice -= totalPriceDeduct;
-
+                delete mapOfObjects.cart[id];
                 console.log(mapOfObjects);
             }
 

@@ -1,8 +1,1 @@
-{
-    "cart":{
-        "_ki49ikpn3":{"id":"_ki49ikpn3","qty":1},
-        "_axob5ss32":{"id":"_axob5ss32","qty":1},
-        "_9k7wk65b4":{"id":"_9k7wk65b4","qty":1}
-        },
-    "totalPrice":1705
-}
+{"cart":{"_wj50uvlc6":{"id":"_wj50uvlc6","price":275,"qty":2},"_3ln2xt4o3":{"id":"_3ln2xt4o3","price":40989,"qty":1}},"totalPrice":41539}

@@ -13,6 +13,8 @@ Router.get('/cart', shopController.getCart);
 
 Router.post('/cart-add', jsonParser, shopController.postCart);
 
+Router.post('/delete-cart', jsonParser, shopController.deleteCart);
+
 Router.get('/checkout', shopController.getCheckOut);
 
 module.exports = Router;    

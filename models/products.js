@@ -80,7 +80,6 @@ module.exports = class Product{
     static deleteItem(id){
         getProductsFromFile(data => {
             let mapOfObjects = JSON.parse(data);
-            const productPrice = mapOfObjects.products[id].price;
             delete mapOfObjects.products[""+id];
             console.log(mapOfObjects);
             fs.writeFile(p, JSON.stringify(mapOfObjects), (err)=>{
@@ -90,8 +89,8 @@ module.exports = class Product{
                 }
                 console.log('Done!');
             })
-            // Cart.deleteItem(id, productPrice);
-        })
+        })            
+        Cart.deleteItem(id);
     }
 
     getTitle(){
@@ -118,8 +117,8 @@ module.exports = class Product{
         getProductsFromFile(data => {
             let arr;
             if(data) arr = JSON.parse(data);
-            console.log(arr," This is the data")
-            cb(arr.products)
+            // console.log(arr," This is the data")
+            if(arr)cb(arr.products)
         })
 
     }
